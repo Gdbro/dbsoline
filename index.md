@@ -35,6 +35,43 @@ permalink: /
   </aside>
 </section>
 
+{% assign featured_post = site.posts | first %}
+<section class="content-panel news-spotlight">
+  <div class="news-spotlight-header">
+    <p class="eyebrow">À la une</p>
+    <h2 class="section-title">Les actualités passent en premier plan</h2>
+    <p class="lead">Le cœur de la vie de l'association est ici: publications, avancées, événements, et mobilisation terrain.</p>
+  </div>
+
+  <div class="news-spotlight-grid">
+    {% if featured_post %}
+      <article class="featured-news-card">
+        {% if featured_post.image %}
+          <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}">
+        {% endif %}
+        <div class="featured-news-body">
+          <time datetime="{{ featured_post.date | date_to_xmlschema }}">{{ featured_post.date | date: "%d/%m/%Y" }}</time>
+          <h3>{{ featured_post.title }}</h3>
+          <p>{{ featured_post.excerpt | strip_html | strip_newlines }}</p>
+          <a class="button" href="{{ featured_post.url | relative_url }}">Lire l'actualité à la une</a>
+        </div>
+      </article>
+    {% endif %}
+
+    <aside class="news-quick-list">
+      <h3>Plus récentes</h3>
+      {% assign secondary_posts = site.posts | slice: 1, 3 %}
+      {% for post in secondary_posts %}
+        <article class="news-mini-item">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time>
+          <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+        </article>
+      {% endfor %}
+      <a class="button-secondary" href="{{ '/actualites/' | relative_url }}">Voir toutes les actualités</a>
+    </aside>
+  </div>
+</section>
+
 <section class="grid-3">
   <article class="card">
     <h2>Notre cause</h2>
@@ -71,7 +108,7 @@ permalink: /
 
 <section class="content-panel">
   <p class="eyebrow">Actualités</p>
-  <h2 class="section-title">Dernieres nouvelles</h2>
+  <h2 class="section-title">Dernières nouvelles</h2>
   <div class="posts-grid">
     {% assign latest_posts = site.posts | slice: 0, 3 %}
     {% for post in latest_posts %}
