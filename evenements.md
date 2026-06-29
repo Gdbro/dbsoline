@@ -3,6 +3,7 @@ layout: page
 title: Événements
 description: Page d'initialisation des événements de l'association.
 permalink: /evenements/
+hero_image: /assets/images/event-02.jpg
 ---
 
 Le site d'origine affichait qu'il n'y avait pas d'événements publiés à l'instant du miroir.

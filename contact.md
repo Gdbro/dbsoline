@@ -3,6 +3,7 @@ layout: page
 title: Contact
 description: Coordonnées essentielles de l'association Du Bruit Pour Soline.
 permalink: /contact/
+hero_image: /assets/images/logo-asso.png
 ---
 
 ## Coordonnées

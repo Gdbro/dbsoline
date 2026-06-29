@@ -3,7 +3,7 @@ layout: post
 title: Objectif atteint pour Soline
 date: 2025-10-02 20:41:59 +0200
 excerpt_text: Les 150 000 euros nécessaires à l'opération ont été réunis, mais l'association continue pour sécuriser les frais restants et aider ensuite d'autres enfants.
-image: https://static.wixstatic.com/media/95c0a7_cce0936d5fa24cf1b60cf7473f53befd~mv2.png
+image: /assets/images/objectif-atteint.png
 ---
 
 Après deux ans de collecte de papier à recycler, d'événements, de tirelires, de ventes de bougies et de bijoux, l'association a annoncé avoir réussi à réunir les 150 000 euros nécessaires à l'opération de Soline en juillet 2026.

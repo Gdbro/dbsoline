@@ -3,6 +3,7 @@ layout: page
 title: Collecte de papier
 description: Informations de base sur la collecte de papier et la nouvelle organisation mentionnée sur le site d'origine.
 permalink: /collecte-de-papier/
+hero_image: /assets/images/collecte-01.jpg
 ---
 
 La collecte de papier est l'une des actions structurantes de l'association.

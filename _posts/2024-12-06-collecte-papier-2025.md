@@ -2,7 +2,7 @@
 title: "2025 : La collecte de papier continue mais avec une nouvelle organisation"
 date: 2024-12-06 10:42:26 +0200
 excerpt_text: La collecte continue en 2025 avec une organisation adaptée pour alléger le rythme tout en gardant les points prioritaires.
-image: https://static.wixstatic.com/media/95c0a7_d605bc8af4914d6699b6eb4f7886f7fb~mv2.webp/v1/fill/w_1000,h_1000,al_c,q_85,usm_0.66_1.00_0.01/95c0a7_d605bc8af4914d6699b6eb4f7886f7fb~mv2.webp
+image: /assets/images/collecte-01.jpg
 ---
 
 Un immense merci à tous les professionnels et particuliers qui nous ont aidés à nous faire connaître et à multiplier les points de collecte de papier.

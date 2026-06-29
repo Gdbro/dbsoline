@@ -3,6 +3,7 @@ layout: page
 title: A propos
 description: Retrouvez les informations essentielles sur l'association et sa mission autour des enfants atteints de microtie et d'atrésie.
 permalink: /a-propos/
+hero_image: /assets/images/portrait-soline.jpg
 ---
 
 L'association Du Bruit Pour Soline s'est construite autour de l'histoire de Soline, née à Lens en août 2022 avec une microtie atrésie de grade 3, une malformation qui affecte l'oreille externe et le conduit auditif.

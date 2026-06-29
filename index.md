@@ -17,6 +17,9 @@ permalink: /
     </div>
   </div>
   <aside class="hero-side">
+    <figure class="hero-media">
+      <img src="{{ '/assets/images/hero-soline.jpg' | relative_url }}" alt="Soline et l'association Du Bruit Pour Soline">
+    </figure>
     <div class="hero-badge">
       <strong>Point de contact principal</strong>
       <p>1bis, rue Jean Jaurès<br>62670 Mazingarbe</p>
@@ -51,6 +54,22 @@ permalink: /
 </section>
 
 <section class="content-panel">
+  <p class="eyebrow">Galerie</p>
+  <h2 class="section-title">Visuels de l'association</h2>
+  <div class="media-grid">
+    <figure class="media-card">
+      <img src="{{ '/assets/images/bandeau-asso.jpg' | relative_url }}" alt="Bandeau de l'association Du Bruit Pour Soline">
+    </figure>
+    <figure class="media-card">
+      <img src="{{ '/assets/images/portrait-soline.jpg' | relative_url }}" alt="Portrait de Soline">
+    </figure>
+    <figure class="media-card">
+      <img src="{{ '/assets/images/logo-asso.png' | relative_url }}" alt="Visuel de l'association">
+    </figure>
+  </div>
+</section>
+
+<section class="content-panel">
   <p class="eyebrow">Actualités</p>
   <h2 class="section-title">Dernieres nouvelles</h2>
   <div class="posts-grid">
@@ -65,3 +84,5 @@ permalink: /
     {% endfor %}
   </div>
 </section>
+
+{% include facebook-feed.html %}

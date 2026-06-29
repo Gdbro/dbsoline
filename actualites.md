@@ -3,6 +3,7 @@ layout: page
 title: Actualités
 description: Les actualités reprises du site existant et migrées dans le nouveau socle Jekyll.
 permalink: /actualites/
+hero_image: /assets/images/bandeau-asso.jpg
 ---
 
 Cette page reprend les premières actualités migrées du site miroir afin d'initialiser une base éditable dans le dépôt.
@@ -17,3 +18,5 @@ Cette page reprend les premières actualités migrées du site miroir afin d'ini
   </article>
 {% endfor %}
 </div>
+
+{% include facebook-feed.html %}
