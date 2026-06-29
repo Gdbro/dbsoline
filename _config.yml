@@ -3,8 +3,8 @@ email: dubruitpoursoline@gmail.com
 description: >-
   Association de soutien aux enfants nés avec des malformations rares de l'oreille,
   autour de l'histoire de Soline et des actions solidaires portées par ses proches.
-baseurl: "/dbsoline"
-url: ""
+baseurl: ""
+url: "https://www.dubruitpoursoline.fr"
 lang: fr
 timezone: Europe/Paris
 permalink: /journal/:title/
