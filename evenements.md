@@ -1,23 +1,23 @@
 ---
 layout: page
-title: Evenements
-description: Page d'initialisation des evenements de l'association.
+title: Événements
+description: Page d'initialisation des événements de l'association.
 permalink: /evenements/
 ---
 
-Le site d'origine affichait qu'il n'y avait pas d'evenements publies a l'instant du miroir.
+Le site d'origine affichait qu'il n'y avait pas d'événements publiés à l'instant du miroir.
 
 ## Etat actuel
 
-Pas d'evenements annonces pour le moment.
+Pas d'événements annoncés pour le moment.
 
-## Proposer un evenement
+## Proposer un événement
 
-L'association peut etre contactee pour imaginer:
+L'association peut être contactée pour imaginer:
 
 - une action locale de soutien
 - une collecte ponctuelle
 - une vente solidaire
-- une presence sur un evenement existant
+- une présence sur un événement existant
 
 Contact: [{{ site.email }}](mailto:{{ site.email }})

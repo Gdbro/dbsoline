@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Accueil
-description: Site de l'association Du Bruit Pour Soline, en soutien aux enfants nes avec une aplasie, une atresie ou une microtie.
+description: Site de l'association Du Bruit Pour Soline, en soutien aux enfants nés avec une aplasie, une atrésie ou une microtie.
 permalink: /
 ---
 
@@ -9,21 +9,21 @@ permalink: /
   <div class="hero-copy">
     <p class="eyebrow">Association solidaire</p>
     <h1>Du Bruit Pour Soline</h1>
-    <p class="lead">Soutien aux enfants nes avec des malformations rares de l'oreille: aplasie, atresie et microtie.</p>
-    <p class="lead">Soline est nee en aout 2022 a Lens avec une microtie atresie de grade 3. L'association est nee pour l'aider, et pour soutenir d'autres enfants et familles confrontes aux memes enjeux.</p>
+    <p class="lead">Soutien aux enfants nés avec des malformations rares de l'oreille: aplasie, atrésie et microtie.</p>
+    <p class="lead">Soline est née en août 2022 à Lens avec une microtie atrésie de grade 3. L'association est née pour l'aider, et pour soutenir d'autres enfants et familles confrontés aux mêmes enjeux.</p>
     <div class="hero-actions">
       <a class="button" href="{{ '/nous-soutenir/' | relative_url }}">Faire un don</a>
-      <a class="button-secondary" href="{{ '/a-propos/' | relative_url }}">Decouvrir la cause</a>
+      <a class="button-secondary" href="{{ '/a-propos/' | relative_url }}">Découvrir la cause</a>
     </div>
   </div>
   <aside class="hero-side">
     <div class="hero-badge">
       <strong>Point de contact principal</strong>
-      <p>1bis, rue Jean Jaures<br>62670 Mazingarbe</p>
+      <p>1bis, rue Jean Jaurès<br>62670 Mazingarbe</p>
     </div>
     <div class="hero-badge">
       <strong>Collecte toujours active</strong>
-      <p>La collecte de papier continue avec une organisation simplifiee, en priorite sur Mazingarbe.</p>
+      <p>La collecte de papier continue avec une organisation simplifiée, en priorité sur Mazingarbe.</p>
     </div>
     <div class="hero-badge">
       <strong>Suivre l'association</strong>
@@ -35,13 +35,13 @@ permalink: /
 <section class="grid-3">
   <article class="card">
     <h2>Notre cause</h2>
-    <p>Informer, mobiliser et soutenir autour des malformations rares de l'oreille, avec une approche tres concrete: collecte, evenements, entraide et visibilite.</p>
+    <p>Informer, mobiliser et soutenir autour des malformations rares de l'oreille, avec une approche très concrète: collecte, événements, entraide et visibilité.</p>
     <a class="button-secondary" href="{{ '/a-propos/' | relative_url }}">Nos valeurs et actions</a>
   </article>
   <article class="card">
-    <h2>Nos evenements</h2>
-    <p>Le site d'origine annonçait peu d'evenements a date, mais la mobilisation locale continue. Le rythme depend des opportunites et des soutiens du terrain.</p>
-    <a class="button-secondary" href="{{ '/evenements/' | relative_url }}">Voir la page evenements</a>
+    <h2>Nos événements</h2>
+    <p>Le site d'origine annonçait peu d'événements à date, mais la mobilisation locale continue. Le rythme dépend des opportunités et des soutiens du terrain.</p>
+    <a class="button-secondary" href="{{ '/evenements/' | relative_url }}">Voir la page événements</a>
   </article>
   <article class="card">
     <h2>S'impliquer</h2>
@@ -51,7 +51,7 @@ permalink: /
 </section>
 
 <section class="content-panel">
-  <p class="eyebrow">Actualites</p>
+  <p class="eyebrow">Actualités</p>
   <h2 class="section-title">Dernieres nouvelles</h2>
   <div class="posts-grid">
     {% assign latest_posts = site.posts | slice: 0, 3 %}

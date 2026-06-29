@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Actualites
-description: Les actualites reprises du site existant et migrees dans le nouveau socle Jekyll.
+title: Actualités
+description: Les actualités reprises du site existant et migrées dans le nouveau socle Jekyll.
 permalink: /actualites/
 ---
 
-Cette page reprend les premieres actualites migrees du site miroir afin d'initialiser une base editable dans le depot.
+Cette page reprend les premières actualités migrées du site miroir afin d'initialiser une base éditable dans le dépôt.
 
 <div class="posts-grid">
 {% for post in site.posts %}
