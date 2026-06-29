@@ -2,7 +2,6 @@
 layout: post
 title: L'association a 1 an
 date: 2024-08-08 10:13:42 +0200
-image: /assets/images/event-03.jpg
 excerpt_text: Dernier post du bilan de la première année de l'association, avec un immense merci à toutes les personnes mobilisées.
 ---
 
