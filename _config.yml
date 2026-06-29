@@ -1,0 +1,41 @@
+title: Du Bruit Pour Soline
+email: dubruitpoursoline@gmail.com
+description: >-
+  Association de soutien aux enfants nes avec des malformations rares de l'oreille,
+  autour de l'histoire de Soline et des actions solidaires portees par ses proches.
+baseurl: "/dbsoline"
+url: ""
+lang: fr
+timezone: Europe/Paris
+permalink: /actualites/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+collections:
+  pages:
+    output: true
+navigation:
+  - title: Accueil
+    url: /
+  - title: A propos
+    url: /a-propos/
+  - title: Nous soutenir
+    url: /nous-soutenir/
+  - title: Collecte de papier
+    url: /collecte-de-papier/
+  - title: Actualites
+    url: /actualites/
+  - title: Evenements
+    url: /evenements/
+  - title: Contact
+    url: /contact/
+social:
+  facebook: https://www.facebook.com/dubruitpoursoline/
+  instagram: https://www.instagram.com/dubruitpoursoline/
+  linkedin: https://www.linkedin.com/company/du-bruit-pour-soline/
+contact:
+  address_line_1: 1bis, rue Jean Jaures
+  postal_code: 62670
+  city: Mazingarbe
+  phone: 06.07.74.97.00
+  rna: W627010798

@@ -1,0 +1,16 @@
+---
+title: 2025 : La collecte de papier continue mais avec une nouvelle organisation
+date: 2024-12-06 10:42:26 +0200
+excerpt_text: La collecte continue en 2025 avec une organisation adaptee pour alleger le rythme tout en gardant les points prioritaires.
+image: https://static.wixstatic.com/media/95c0a7_d605bc8af4914d6699b6eb4f7886f7fb~mv2.webp/v1/fill/w_1000,h_1000,al_c,q_85,usm_0.66_1.00_0.01/95c0a7_d605bc8af4914d6699b6eb4f7886f7fb~mv2.webp
+---
+
+Un immense merci a tous les professionnels et particuliers qui nous ont aides a nous faire connaitre et a multiplier les points de collecte de papier.
+
+Grace a vous, nous avons pu sillonner la Cote d'Opale et collecter quotidiennement du papier pendant un an et demi.
+
+En 2025, la collecte continue, mais avec une nouvelle organisation pour s'adapter et alleger le rythme.
+
+Sur Mazingarbe, pas de changement.
+
+Merci de privilegier en priorite le point de depot principal de l'association et de nous contacter si vous souhaitez organiser ou maintenir un point de collecte.

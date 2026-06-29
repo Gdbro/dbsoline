@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'fr' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% feed_meta %}
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-mark">DBS</span>
+          <span>
+            <strong>{{ site.title }}</strong>
+            <small>Association solidaire</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Navigation principale">
+          {% for item in site.navigation %}
+            {% assign item_url = item.url | relative_url %}
+            <a href="{{ item_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+          {% endfor %}
+        </nav>
+        <a class="header-cta" href="{{ '/nous-soutenir/' | relative_url }}">Faire un don</a>
+      </header>
+
+      <main>
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <h2>{{ site.title }}</h2>
+          <p>Soutien aux enfants nes avec des malformations rares de l'oreille.</p>
+        </div>
+        <div>
+          <p>{{ site.contact.address_line_1 }}</p>
+          <p>{{ site.contact.postal_code }} {{ site.contact.city }}</p>
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+          <p><a href="tel:+33607749700">{{ site.contact.phone }}</a></p>
+        </div>
+        <div>
+          <p><a href="{{ site.social.facebook }}">Facebook</a></p>
+          <p><a href="{{ site.social.instagram }}">Instagram</a></p>
+          <p><a href="{{ site.social.linkedin }}">LinkedIn</a></p>
+          <p>RNA {{ site.contact.rna }}</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
