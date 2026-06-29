@@ -15,6 +15,20 @@ L'association s'appuie sur une mobilisation de proximité: dons, collectes, tire
 - relayer l'association dans votre commune, votre école, votre entreprise ou votre commerce
 - participer a la collecte de papier
 
+## Faire un don en ligne
+
+<p>
+	<a
+		class="button"
+		href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dubruitpoursoline%40gmail.com&currency_code=EUR&item_name=Don%20-%20Du%20Bruit%20Pour%20Soline"
+		target="_blank"
+		rel="noopener noreferrer">
+		Faire un don via PayPal
+	</a>
+</p>
+
+Ce bouton ouvre un paiement en mode don (et non un achat) au profit de l'association.
+
 ## Prendre contact
 
 Pour contribuer ou organiser une action, le plus direct reste le contact par mail ou par téléphone.
