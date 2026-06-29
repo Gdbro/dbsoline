@@ -3,15 +3,26 @@ layout: post
 title: Objectif atteint pour Soline
 date: 2025-10-02 20:41:59 +0200
 excerpt_text: Les 150 000 euros nécessaires à l'opération ont été réunis, mais l'association continue pour sécuriser les frais restants et aider ensuite d'autres enfants.
-image: /assets/images/objectif-atteint.png
+image: /assets/images/bandeau-asso.jpg
 ---
 
-Après deux ans de collecte de papier à recycler, d'événements, de tirelires, de ventes de bougies et de bijoux, l'association a annoncé avoir réussi à réunir les 150 000 euros nécessaires à l'opération de Soline en juillet 2026.
+Après 2 ans de collecte de papier à recycler, d’événements, de tirelires, de ventes de bougies et de bijoux… nous avons réussi ensemble à réunir les 150 000 € nécessaires pour mon opération en juillet 2026
 
-L'objectif fixé est atteint, mais le message précisait qu'il reste une estimation. Avec l'inflation, certains frais peuvent encore évoluer d'ici 2026: billets d'avion, essence, logement et dépenses sur place pendant plusieurs semaines.
 
-C'est pourquoi les actions continuent.
+L’objectif fixé est atteint, mais il reste une estimation. Avec l’inflation, certains frais peuvent encore augmenter d’ici 2026 : billets d’avion, essence, logement… Et comme nous devrons rester 5 semaines sur place, les dépenses peuvent vite grimper.
 
-Les ventes de bougies se poursuivent, d'autres événements sont prévus, et l'association souhaite aussi prolonger son action après l'opération pour aider d'autres enfants et d'autres structures liées au handicap.
+C’est pourquoi nous continuons nos actions :
 
-Le message d'origine se concluait par un immense merci à toutes les personnes qui soutiennent, participent, proposent des événements, accueillent des tirelires et donnent de leur temps et de leur énergie.
+Les ventes de bougies se poursuivent, et d’autres événements sont déjà prévus (et sûrement encore à venir) afin de sécuriser l’avenir de ce projet.
+
+Et après mon opération ? Nous continuerons à agir, peut-être à un rythme plus léger, pour d’autres enfants et associations liés au handicap
+
+Un immense MERCI à toutes celles et ceux qui nous soutiennent, qui participent, qui proposent des événements, acceptent nos tirelires dans leur commerce, qui donnent de leur temps et de leur énergie. Sans vous, rien n’aurait été possible
+
+On continue bien sûr à vous donner des mes nouvelles et de mes aventures !
+
+Bisous
+
+Soline
+
+
