@@ -3,6 +3,7 @@ layout: page
 title: Actualités
 description: Les actualités reprises du site existant et migrées dans le nouveau socle Jekyll.
 permalink: /actualites/
+published: false
 hero_image: /assets/images/bandeau-asso.jpg
 ---
 

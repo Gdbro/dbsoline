@@ -2,7 +2,7 @@
 layout: page
 title: Nous soutenir
 description: Soutenir l'association avec un don, un événement ou la collecte de papier.
-permalink: /nous-soutenir/
+permalink: /soutenir/
 hero_image: /assets/images/event-01.jpg
 ---
 

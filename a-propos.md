@@ -3,6 +3,7 @@ layout: page
 title: A propos
 description: Retrouvez les informations essentielles sur l'association et sa mission autour des enfants atteints de microtie et d'atrésie.
 permalink: /a-propos/
+published: false
 hero_image: /assets/images/portrait-soline.jpg
 ---
 

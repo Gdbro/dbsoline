@@ -3,6 +3,7 @@ layout: page
 title: Événements
 description: Page d'initialisation des événements de l'association.
 permalink: /evenements/
+published: false
 hero_image: /assets/images/event-02.jpg
 ---
 

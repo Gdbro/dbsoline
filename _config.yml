@@ -7,7 +7,7 @@ baseurl: "/dbsoline"
 url: ""
 lang: fr
 timezone: Europe/Paris
-permalink: /actualites/:title/
+permalink: /journal/:title/
 markdown: kramdown
 plugins:
   - jekyll-feed
@@ -17,18 +17,12 @@ collections:
 navigation:
   - title: Accueil
     url: /
-  - title: À propos
-    url: /a-propos/
-  - title: Nous soutenir
-    url: /nous-soutenir/
-  - title: Collecte de papier
-    url: /collecte-de-papier/
-  - title: Actualités
-    url: /actualites/
-  - title: Événements
-    url: /evenements/
-  - title: Contact
-    url: /contact/
+  - title: L'histoire de Soline
+    url: /soline/
+  - title: Journal de bord
+    url: /journal/
+  - title: Soutenir
+    url: /soutenir/
 social:
   facebook: https://www.facebook.com/dubruitpoursoline/
   instagram: https://www.instagram.com/dubruitpoursoline/

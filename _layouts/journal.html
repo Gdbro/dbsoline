@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<header class="page-hero page-hero-simple">
+  <p class="eyebrow">📍 Journal de bord — États-Unis</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+    <p class="lead">{{ page.description }}</p>
+  {% endif %}
+</header>
+
+<div class="journal-layout">
+
+  <section class="journal-timeline" aria-label="Entrées du journal">
+    <div class="timeline-track" aria-hidden="true"></div>
+
+    {% for post in site.posts %}
+      <article class="timeline-entry">
+        <div class="timeline-node" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+          <h2>{{ post.title }}</h2>
+          {% if post.image %}
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+          {% endif %}
+          <div class="timeline-content">{{ post.content }}</div>
+          <a class="journal-permalink" href="{{ post.url | relative_url }}">Permalien de cette entrée</a>
+        </div>
+      </article>
+    {% endfor %}
+
+    {% if site.posts.size == 0 %}
+      <div class="timeline-empty">
+        <p>🛫 Le journal sera mis à jour dès notre arrivée aux États-Unis, le 12 juillet 2026.</p>
+        <p>En attendant, suivez nos publications sur <a href="{{ site.social.facebook }}" target="_blank" rel="noopener">Facebook</a>.</p>
+      </div>
+    {% endif %}
+
+  </section>
+
+  <aside class="journal-sidebar" aria-label="Publications Facebook">
+    {% include facebook-sidebar.html %}
+  </aside>
+
+</div>
