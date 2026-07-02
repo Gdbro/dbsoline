@@ -27,8 +27,6 @@ L'association s'appuie sur une mobilisation de proximité: dons, collectes, tire
 	</a>
 </p>
 
-Ce bouton ouvre un paiement en mode don (et non un achat) au profit de l'association.
-
 ## Prendre contact
 
 Pour contribuer ou organiser une action, le plus direct reste le contact par mail ou par téléphone.
