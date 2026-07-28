@@ -1,0 +1,1002 @@
+---
+layout: null
+permalink: /belote/
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0d3d20">
+  <title>Belote</title>
+  <style>
+    :root {
+      --bg: #0d3d20;
+      --surface: #112e18;
+      --surface2: #0a2410;
+      --nous: #3b82f6;
+      --nous-dim: #1d4ed8;
+      --nous-light: #93c5fd;
+      --eux: #ef4444;
+      --eux-dim: #b91c1c;
+      --eux-light: #fca5a5;
+      --text: #f0ede8;
+      --text-dim: rgba(240,237,232,0.5);
+      --text-faint: rgba(240,237,232,0.2);
+      --border: rgba(255,255,255,0.08);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      height: 100%;
+      overscroll-behavior: none;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100dvh;
+    }
+
+    /* ──────────── HEADER ──────────── */
+    .header {
+      background: var(--surface2);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      flex-shrink: 0;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .app-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-title svg { opacity: 0.8; }
+
+    .btn-new-game {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      background: var(--border);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 5px 12px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .btn-new-game:active { background: rgba(255,255,255,0.15); color: var(--text); }
+
+    .scores-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .score-team {
+      text-align: center;
+      padding: 10px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .score-team.nous { background: var(--nous-dim); }
+    .score-team.eux  { background: var(--eux-dim); }
+
+    .score-team .t-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+    .score-team .t-value {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .score-sep {
+      font-size: 1.2rem;
+      color: var(--text-faint);
+      font-weight: 300;
+      text-align: center;
+    }
+
+    /* ──────────── HISTORY ──────────── */
+    .history {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 12px 6px;
+    }
+
+    .history-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 80px;
+      color: var(--text-faint);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .round-row {
+      display: grid;
+      grid-template-columns: 20px 44px 1fr 1fr 28px;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 6px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+      margin-bottom: 6px;
+      animation: fadeIn 0.18s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .rnd-num {
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    .rnd-preneur {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 4px 4px;
+      border-radius: 20px;
+    }
+    .rnd-preneur.nous { background: var(--nous-dim); }
+    .rnd-preneur.eux  { background: var(--eux-dim); }
+
+    .rnd-score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .rnd-score .rs-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.5px;
+      opacity: 0.5;
+    }
+    .rnd-score .rs-pts {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .rnd-score.nous .rs-pts { color: var(--nous-light); }
+    .rnd-score.eux  .rs-pts { color: var(--eux-light); }
+    .rnd-score .rs-flags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .badge {
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      letter-spacing: 0.3px;
+    }
+    .badge.chute  { background: #7f1d1d; color: #fecaca; }
+    .badge.capot  { background: #78350f; color: #fde68a; }
+    .badge.belote { background: #14532d; color: #bbf7d0; }
+    .badge.litige { background: #312e81; color: #c7d2fe; }
+
+    .btn-del {
+      background: none;
+      border: none;
+      color: var(--text-faint);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 4px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .btn-del:active { color: var(--eux); }
+
+    /* ──────────── FORM ──────────── */
+    .form-panel {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 14px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+      flex-shrink: 0;
+    }
+
+    .form-section-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 10px;
+    }
+
+    /* Chute mode toggle */
+    .chute-mode-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .chute-mode-label {
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+    .chute-mode-toggle {
+      display: flex;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      flex: 1;
+    }
+    .cm-btn {
+      flex: 1;
+      padding: 5px 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-faint);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .cm-btn.active {
+      background: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    /* Preneur toggle */
+    .preneur-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .preneur-btn {
+      padding: 11px;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .preneur-btn.active.nous { background: var(--nous); color: #fff; }
+    .preneur-btn.active.eux  { background: var(--eux);  color: #fff; }
+
+    /* Points */
+    .points-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pts-field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .pts-field-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+    .pts-field-label.nous { color: var(--nous-light); }
+    .pts-field-label.eux  { color: var(--eux-light); }
+
+    .pts-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 8px 4px;
+      width: 100%;
+    }
+    .pts-input:focus { outline: 2px solid var(--nous); outline-offset: 1px; }
+
+    .pts-auto {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 8px 4px;
+    }
+
+    .pts-arrow {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    /* Belote + Annonces row */
+    .belote-ann-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .ba-team {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ba-team.nous { border-color: rgba(59,130,246,0.25); }
+    .ba-team.eux  { border-color: rgba(239,68,68,0.25); }
+
+    .ba-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+    .ba-label.nous { color: var(--nous-light); }
+    .ba-label.eux  { color: var(--eux-light); }
+
+    .ba-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .ba-check-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .ba-check-label input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      accent-color: #22c55e;
+    }
+
+    .ann-label {
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    .ann-input {
+      width: 60px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 5px 4px;
+    }
+    .ann-input:focus { outline: 1px solid var(--nous); }
+
+    /* Preview */
+    .preview-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .prev-score {
+      text-align: center;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .prev-score.nous { border-color: rgba(59,130,246,0.35); }
+    .prev-score.eux  { border-color: rgba(239,68,68,0.35); }
+
+    .prev-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .prev-val {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .prev-score.nous .prev-val { color: var(--nous-light); }
+    .prev-score.eux  .prev-val { color: var(--eux-light); }
+
+    .prev-flags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      justify-content: center;
+      margin-top: 2px;
+      min-height: 14px;
+    }
+
+    .prev-sep {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    /* Validate button */
+    .btn-valider {
+      width: 100%;
+      background: #16a34a;
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-valider:active { background: #15803d; }
+    .btn-valider:disabled { background: rgba(255,255,255,0.1); color: var(--text-faint); cursor: default; }
+
+    /* ──────────── MODAL ──────────── */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 24px;
+    }
+    .modal-bg.open { display: flex; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 24px;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .modal-icon { font-size: 2rem; margin-bottom: 8px; }
+    .modal-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+    .modal-body { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.5; }
+
+    .modal-actions { display: flex; gap: 8px; }
+    .btn-modal-cancel {
+      flex: 1; padding: 12px; border-radius: var(--radius-sm);
+      border: 1px solid rgba(255,255,255,0.15); background: transparent;
+      color: var(--text); font-size: 0.9rem; cursor: pointer;
+    }
+    .btn-modal-ok {
+      flex: 1; padding: 12px; border-radius: var(--radius-sm);
+      border: none; background: var(--eux);
+      color: #fff; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    }
+
+    /* Number inputs — no spinners */
+    input[type=number] { -moz-appearance: textfield; }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-top">
+      <div class="app-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 14H11v-2h2v2zm0-4H11V7h2v5z"/>
+        </svg>
+        BELOTE
+      </div>
+      <button class="btn-new-game" onclick="openModal()">Nouvelle partie</button>
+    </div>
+    <div class="scores-bar">
+      <div class="score-team nous">
+        <div class="t-label">NOUS</div>
+        <div class="t-value" id="total-nous">0</div>
+      </div>
+      <div class="score-sep">—</div>
+      <div class="score-team eux">
+        <div class="t-label">EUX</div>
+        <div class="t-value" id="total-eux">0</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HISTORY ── -->
+  <div class="history" id="history">
+    <div class="history-empty" id="empty-msg">
+      <span>Aucune manche jouée</span>
+    </div>
+  </div>
+
+  <!-- ── FORM ── -->
+  <div class="form-panel">
+    <div class="form-section-title">Nouvelle manche</div>
+
+    <!-- Mode chute -->
+    <div class="chute-mode-row">
+      <span class="chute-mode-label">Chute si</span>
+      <div class="chute-mode-toggle">
+        <button class="cm-btn" id="cm-levees" onclick="setChuteMode('levees')">levées &lt; 82</button>
+        <button class="cm-btn" id="cm-total"  onclick="setChuteMode('total')">total &lt; adv.</button>
+      </div>
+    </div>
+
+    <!-- Preneur -->
+    <div class="preneur-toggle">
+      <button class="preneur-btn nous active" id="btn-nous" onclick="setPreneur('nous')">NOUS</button>
+      <button class="preneur-btn eux" id="btn-eux" onclick="setPreneur('eux')">EUX</button>
+    </div>
+
+    <!-- Points -->
+    <div class="points-grid">
+      <div class="pts-field">
+        <div class="pts-field-label nous" id="pts-label-preneur">NOUS</div>
+        <input
+          type="number" id="pts-input"
+          class="pts-input" min="0" max="162"
+          inputmode="numeric" placeholder="—"
+          oninput="onPtsInput()"
+        >
+      </div>
+      <div class="pts-arrow">→</div>
+      <div class="pts-field">
+        <div class="pts-field-label eux" id="pts-label-adv">EUX</div>
+        <div class="pts-auto" id="pts-adv">—</div>
+      </div>
+    </div>
+
+    <!-- Belote + Annonces par équipe -->
+    <div class="belote-ann-grid">
+      <div class="ba-team nous">
+        <div class="ba-label nous">NOUS</div>
+        <div class="ba-row">
+          <label class="ba-check-label">
+            <input type="checkbox" id="bel-nous" onchange="onBeloteChange('nous')">
+            Belote +20
+          </label>
+        </div>
+        <div class="ba-row">
+          <span class="ann-label">Annonces</span>
+          <input type="number" class="ann-input" id="ann-nous"
+            min="0" value="0" inputmode="numeric" oninput="updatePreview()">
+        </div>
+      </div>
+      <div class="ba-team eux">
+        <div class="ba-label eux">EUX</div>
+        <div class="ba-row">
+          <label class="ba-check-label">
+            <input type="checkbox" id="bel-eux" onchange="onBeloteChange('eux')">
+            Belote +20
+          </label>
+        </div>
+        <div class="ba-row">
+          <span class="ann-label">Annonces</span>
+          <input type="number" class="ann-input" id="ann-eux"
+            min="0" value="0" inputmode="numeric" oninput="updatePreview()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview-bar">
+      <div class="prev-score nous">
+        <div class="prev-label">NOUS</div>
+        <div class="prev-val" id="prev-nous">—</div>
+        <div class="prev-flags" id="prev-flags-nous"></div>
+      </div>
+      <div class="prev-sep">vs</div>
+      <div class="prev-score eux">
+        <div class="prev-label">EUX</div>
+        <div class="prev-val" id="prev-eux">—</div>
+        <div class="prev-flags" id="prev-flags-eux"></div>
+      </div>
+    </div>
+
+    <button class="btn-valider" id="btn-valider" onclick="valider()" disabled>VALIDER</button>
+  </div>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-bg" id="modal">
+    <div class="modal-box">
+      <div class="modal-icon">🃏</div>
+      <div class="modal-title">Nouvelle partie ?</div>
+      <div class="modal-body">Tous les scores seront effacés.<br>Cette action est irréversible.</div>
+      <div class="modal-actions">
+        <button class="btn-modal-cancel" onclick="closeModal()">Annuler</button>
+        <button class="btn-modal-ok" onclick="resetGame()">Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── STATE ──────────────────────────────────────────────
+    let preneur   = 'nous';
+    let rounds    = [];
+    let chuteMode = 'total'; // 'levees' | 'total'
+
+    // ── PERSISTENCE ────────────────────────────────────────
+    const KEY      = 'belote_v1';
+    const KEY_MODE = 'belote_chutemode';
+
+    function load() {
+      try {
+        const d = localStorage.getItem(KEY);
+        if (d) rounds = JSON.parse(d);
+      } catch(e) { rounds = []; }
+      chuteMode = localStorage.getItem(KEY_MODE) || 'total';
+    }
+
+    function save() {
+      localStorage.setItem(KEY, JSON.stringify(rounds));
+    }
+
+    // ── CHUTE MODE TOGGLE ──────────────────────────────────
+    function setChuteMode(mode) {
+      chuteMode = mode;
+      localStorage.setItem(KEY_MODE, mode);
+      document.getElementById('cm-levees').classList.toggle('active', mode === 'levees');
+      document.getElementById('cm-total').classList.toggle('active',  mode === 'total');
+      updatePreview();
+    }
+
+    function initChuteModeUI() {
+      document.getElementById('cm-levees').classList.toggle('active', chuteMode === 'levees');
+      document.getElementById('cm-total').classList.toggle('active',  chuteMode === 'total');
+    }
+
+    // ── PRENEUR ────────────────────────────────────────────
+    function setPreneur(p) {
+      preneur = p;
+      document.getElementById('btn-nous').className = 'preneur-btn nous' + (p === 'nous' ? ' active' : '');
+      document.getElementById('btn-eux').className  = 'preneur-btn eux'  + (p === 'eux'  ? ' active' : '');
+      // Update points labels
+      document.getElementById('pts-label-preneur').className = 'pts-field-label ' + p;
+      document.getElementById('pts-label-preneur').textContent = p === 'nous' ? 'NOUS' : 'EUX';
+      document.getElementById('pts-label-adv').className = 'pts-field-label ' + (p === 'nous' ? 'eux' : 'nous');
+      document.getElementById('pts-label-adv').textContent = p === 'nous' ? 'EUX' : 'NOUS';
+      updatePreview();
+    }
+
+    // ── POINTS INPUT ───────────────────────────────────────
+    function onPtsInput() {
+      const raw = document.getElementById('pts-input').value;
+      const n   = parseInt(raw);
+      if (!isNaN(n) && raw !== '') {
+        const clamped = Math.max(0, Math.min(162, n));
+        document.getElementById('pts-adv').textContent = 162 - clamped;
+      } else {
+        document.getElementById('pts-adv').textContent = '—';
+      }
+      updatePreview();
+    }
+
+    // ── BELOTE RULES ───────────────────────────────────────
+    // Returns { score_nous, score_eux, flags_nous[], flags_eux[] }
+    function calcRound(ptsPreneur, preneurSide, belNous, belEux, annNous, annEux) {
+      const pts = Math.max(0, Math.min(162, ptsPreneur));
+      const ptsAdv = 162 - pts;
+
+      const bNous = belNous ? 20 : 0;
+      const bEux  = belEux  ? 20 : 0;
+
+      // Card points by team
+      const cNous = preneurSide === 'nous' ? pts    : ptsAdv;
+      const cEux  = preneurSide === 'eux'  ? pts    : ptsAdv;
+
+      const flags_nous = [];
+      const flags_eux  = [];
+      let score_nous, score_eux;
+
+      // Capot detection
+      const capotPreneur  = pts === 162;
+      const capotAdversaire = pts === 0;
+
+      if (capotPreneur || capotAdversaire) {
+        // Which team wins all tricks?
+        const capotSide = capotPreneur ? preneurSide : (preneurSide === 'nous' ? 'eux' : 'nous');
+        const loserSide = capotSide === 'nous' ? 'eux' : 'nous';
+
+        const annWinner = capotSide === 'nous' ? annNous : annEux;
+        const bWinner   = capotSide === 'nous' ? bNous   : bEux;
+        const bLoser    = capotSide === 'nous' ? bEux    : bNous;
+
+        const winTotal  = 252 + annWinner + bWinner; // 162 + 90 bonus + annonces + belote
+
+        if (capotSide === 'nous') {
+          score_nous = winTotal;
+          score_eux  = bLoser;
+          flags_nous.push('CAPOT');
+          // Preneur EUX made chute
+          if (preneurSide === 'eux') flags_eux.push('CHUTE');
+        } else {
+          score_eux  = winTotal;
+          score_nous = bLoser;
+          flags_eux.push('CAPOT');
+          if (preneurSide === 'nous') flags_nous.push('CHUTE');
+        }
+
+      } else {
+        let litige, chute;
+
+        if (chuteMode === 'levees') {
+          // Mode standard : chute si levées du preneur ≤ 81
+          chute  = pts <= 81;
+          litige = pts === 81; // litige à 81-81
+        } else {
+          // Mode total : chute si total (levées + annonces + belote) du preneur ≤ total adversaire
+          const totPreneur = pts    + (preneurSide === 'nous' ? annNous + bNous : annEux + bEux);
+          const totAdv     = ptsAdv + (preneurSide === 'nous' ? annEux  + bEux  : annNous + bNous);
+          litige = totPreneur === totAdv;
+          chute  = totPreneur <  totAdv;
+        }
+
+        if (litige) {
+          // Les 162 pts de levées sont suspendus, seuls annonces et belote comptent
+          score_nous = annNous + bNous;
+          score_eux  = annEux  + bEux;
+          flags_nous.push('LITIGE');
+          flags_eux.push('LITIGE');
+
+        } else if (chute) {
+          // Chute : l'adversaire prend 162 + toutes les annonces (belote reste)
+          const allAnn = annNous + annEux;
+          if (preneurSide === 'nous') {
+            score_nous = bNous;
+            score_eux  = 162 + allAnn + bEux;
+            flags_nous.push('CHUTE');
+          } else {
+            score_eux  = bEux;
+            score_nous = 162 + allAnn + bNous;
+            flags_eux.push('CHUTE');
+          }
+
+        } else {
+          // Normal
+          score_nous = cNous + annNous + bNous;
+          score_eux  = cEux  + annEux  + bEux;
+        }
+      }
+
+      if (belNous) flags_nous.push('BELOTE');
+      if (belEux)  flags_eux.push('BELOTE');
+
+      return { score_nous, score_eux, flags_nous, flags_eux };
+    }
+
+    // ── BELOTE (exclusif — un seul camp peut avoir roi+dame d'atout) ──
+    function onBeloteChange(side) {
+      if (side === 'nous' && document.getElementById('bel-nous').checked) {
+        document.getElementById('bel-eux').checked = false;
+      } else if (side === 'eux' && document.getElementById('bel-eux').checked) {
+        document.getElementById('bel-nous').checked = false;
+      }
+      updatePreview();
+    }
+
+    // ── PREVIEW ────────────────────────────────────────────
+    function updatePreview() {
+      const raw = document.getElementById('pts-input').value;
+      const pts = parseInt(raw);
+      const hasInput = !isNaN(pts) && raw !== '';
+
+      document.getElementById('btn-valider').disabled = !hasInput;
+
+      if (!hasInput) {
+        document.getElementById('prev-nous').textContent = '—';
+        document.getElementById('prev-eux').textContent  = '—';
+        document.getElementById('prev-flags-nous').innerHTML = '';
+        document.getElementById('prev-flags-eux').innerHTML  = '';
+        return;
+      }
+
+      const bNous  = document.getElementById('bel-nous').checked;
+      const bEux   = document.getElementById('bel-eux').checked;
+      const annN   = parseInt(document.getElementById('ann-nous').value) || 0;
+      const annE   = parseInt(document.getElementById('ann-eux').value)  || 0;
+
+      const r = calcRound(pts, preneur, bNous, bEux, annN, annE);
+
+      document.getElementById('prev-nous').textContent = '+' + r.score_nous;
+      document.getElementById('prev-eux').textContent  = '+' + r.score_eux;
+      document.getElementById('prev-flags-nous').innerHTML = r.flags_nous.map(f => badgeHtml(f)).join('');
+      document.getElementById('prev-flags-eux').innerHTML  = r.flags_eux.map(f => badgeHtml(f)).join('');
+    }
+
+    function badgeHtml(flag) {
+      return `<span class="badge ${flag.toLowerCase()}">${flag}</span>`;
+    }
+
+    // ── VALIDER ────────────────────────────────────────────
+    function valider() {
+      const raw = document.getElementById('pts-input').value;
+      const pts = parseInt(raw);
+      if (isNaN(pts) || raw === '') return;
+
+      const bNous = document.getElementById('bel-nous').checked;
+      const bEux  = document.getElementById('bel-eux').checked;
+      const annN  = parseInt(document.getElementById('ann-nous').value) || 0;
+      const annE  = parseInt(document.getElementById('ann-eux').value)  || 0;
+
+      const r = calcRound(pts, preneur, bNous, bEux, annN, annE);
+
+      rounds.push({
+        id: Date.now(),
+        preneur,
+        pts_preneur: pts,
+        bel_nous: bNous, bel_eux: bEux,
+        ann_nous: annN,  ann_eux: annE,
+        score_nous: r.score_nous,
+        score_eux:  r.score_eux,
+        flags_nous: r.flags_nous,
+        flags_eux:  r.flags_eux,
+      });
+
+      save();
+      resetForm();
+      render();
+
+      // Scroll history to bottom
+      setTimeout(() => {
+        const h = document.getElementById('history');
+        h.scrollTop = h.scrollHeight;
+      }, 50);
+    }
+
+    // ── RESET FORM ─────────────────────────────────────────
+    function resetForm() {
+      document.getElementById('pts-input').value = '';
+      document.getElementById('pts-adv').textContent = '—';
+      document.getElementById('bel-nous').checked = false;
+      document.getElementById('bel-eux').checked  = false;
+      document.getElementById('ann-nous').value = '0';
+      document.getElementById('ann-eux').value  = '0';
+      document.getElementById('prev-nous').textContent = '—';
+      document.getElementById('prev-eux').textContent  = '—';
+      document.getElementById('prev-flags-nous').innerHTML = '';
+      document.getElementById('prev-flags-eux').innerHTML  = '';
+      document.getElementById('btn-valider').disabled = true;
+    }
+
+    // ── DELETE ROUND ───────────────────────────────────────
+    function deleteRound(id) {
+      rounds = rounds.filter(r => r.id !== id);
+      save();
+      render();
+    }
+
+    // ── RENDER ─────────────────────────────────────────────
+    function render() {
+      const hist = document.getElementById('history');
+      const empty = document.getElementById('empty-msg');
+
+      const totalNous = rounds.reduce((s, r) => s + r.score_nous, 0);
+      const totalEux  = rounds.reduce((s, r) => s + r.score_eux,  0);
+
+      document.getElementById('total-nous').textContent = totalNous;
+      document.getElementById('total-eux').textContent  = totalEux;
+
+      hist.innerHTML = '';
+
+      if (rounds.length === 0) {
+        hist.appendChild(empty);
+        empty.style.display = 'flex';
+        return;
+      }
+
+      rounds.forEach((r, i) => {
+        const el = document.createElement('div');
+        el.className = 'round-row';
+
+        const flagsN = r.flags_nous.map(f => badgeHtml(f)).join('');
+        const flagsE = r.flags_eux.map(f => badgeHtml(f)).join('');
+
+        el.innerHTML = `
+          <div class="rnd-num">${i + 1}</div>
+          <div class="rnd-preneur ${r.preneur}">${r.preneur === 'nous' ? 'NOUS' : 'EUX'}</div>
+          <div class="rnd-score nous">
+            <div class="rs-label">NOUS</div>
+            <div class="rs-pts">+${r.score_nous}</div>
+            <div class="rs-flags">${flagsN}</div>
+          </div>
+          <div class="rnd-score eux">
+            <div class="rs-label">EUX</div>
+            <div class="rs-pts">+${r.score_eux}</div>
+            <div class="rs-flags">${flagsE}</div>
+          </div>
+          <button class="btn-del" onclick="deleteRound(${r.id})" title="Supprimer">✕</button>
+        `;
+
+        hist.appendChild(el);
+      });
+    }
+
+    // ── MODAL ──────────────────────────────────────────────
+    function openModal()  { document.getElementById('modal').classList.add('open'); }
+    function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+    function resetGame() {
+      rounds = [];
+      save();
+      closeModal();
+      resetForm();
+      render();
+    }
+
+    // ── BOOT ───────────────────────────────────────────────
+    load();
+    initChuteModeUI();
+    render();
+  </script>
+</body>
+</html>
