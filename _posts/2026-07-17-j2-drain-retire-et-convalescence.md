@@ -3,6 +3,7 @@ layout: post
 title: J+2, le drain retiré
 date: 2026-07-17 12:00:00 -0700
 excerpt_text: "Deux jours après l'opération, la première récupération se passe bien et le drain a été retiré."
+image: /assets/images/usa-j2.jpg
 facebook_source: https://www.facebook.com/dubruitpoursoline/posts/pfbid023aaDKSagYdwongFdwyWy7XEKdErhEy3YNH3Nyf3MFrUCtPv6TFiTqk9Preg966A9l
 ---
 

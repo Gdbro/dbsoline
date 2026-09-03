@@ -3,6 +3,7 @@ layout: post
 title: Deux semaines après l'opération
 date: 2026-07-29 18:00:00 -0700
 excerpt_text: "Deux semaines après l'opération, l'oreille de Soline reste protégée avant la découverte prévue quelques heures plus tard."
+image: /assets/images/usa-deux-semaines.jpg
 facebook_source: https://www.facebook.com/photo.php?fbid=935683639572075
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: Dernier rendez-vous avant le retour
 date: 2026-08-14 10:30:00 -0700
 excerpt_text: "Dernière nuit aux États-Unis : activation de l'appareil auditif, dernier rendez-vous médical et retour imminent."
+image: /assets/images/usa-dernier-rdv.jpg
 facebook_source: https://www.facebook.com/dubruitpoursoline/posts/pfbid02xFcjtsY6kuxPHtyPHAMhLHYPPVobURDTpoWC2uhdnidDjsJxNrd6GaQyjmdrzkQXl
 ---
 

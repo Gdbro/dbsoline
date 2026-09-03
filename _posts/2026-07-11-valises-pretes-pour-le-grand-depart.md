@@ -3,6 +3,7 @@ layout: post
 title: Valises prêtes pour le grand départ
 date: 2026-07-11 18:00:00 +0200
 excerpt_text: "À la veille du départ, les valises sont prêtes après trois années de mobilisation autour de Soline."
+image: /assets/images/usa-depart.jpg
 facebook_source: https://www.facebook.com/photo.php?fbid=920650564408716
 ---
 

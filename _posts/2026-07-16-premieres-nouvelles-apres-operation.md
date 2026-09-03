@@ -3,6 +3,7 @@ layout: post
 title: Premières nouvelles après l'opération
 date: 2026-07-16 08:30:00 -0700
 excerpt_text: "Au lendemain de l'opération du 15 juillet, tout s'est bien déroulé et la première nuit est passée."
+image: /assets/images/usa-operation.jpg
 facebook_source: https://www.facebook.com/dubruitpoursoline/posts/pfbid032r69wP6ByiN8SJ5wsfherdf6JhYnzkwFPy3djN7NHfZW3Pf9PATEdAQPAV2t3jLul
 ---
 
